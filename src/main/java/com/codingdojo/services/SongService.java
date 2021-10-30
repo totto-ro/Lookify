@@ -31,7 +31,7 @@ public class SongService {
 	
 	
 	
-	//Retrieve all languages
+	//Retrieve all Songs
 	public List<Song> getAllSongs(){
 			return songRepository.findAll();
 		}
@@ -47,9 +47,18 @@ public class SongService {
 		}
 	}
 	
+	//Retrieve by rating
+	public List<Song> topTenByRating() {
+		return songRepository.findTop10ByOrderByRatingDesc();
+	}
+	
+	public List<Song> songsContainingArtist( String artist ) {
+		return songRepository.findByArtistContaining( artist );
+	}
+	
 	//Delete
-	public void deleteSong(Long id) {
-		songRepository.deleteById(id);
+	public void deleteSong( Long id ) {
+		songRepository.deleteById( id );
 	}
 
 }

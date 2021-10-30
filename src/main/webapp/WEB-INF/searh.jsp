@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isErrorPage="true" %>    
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+
 
 <!DOCTYPE html>
 <html>
@@ -13,15 +12,21 @@
 	<body>
 		<main>
 			<nav>
-				<h1><a href="/songs/new">Add New</a>  <a href="/songs/topTen">Top Ten</a></h1>
+				<h1>Searched for: ${ artist }</h1>
 				<form class="searh" action="/search">
 					<input type="text" name="artist"/>
 					<button type="submit">
 						Search Artist
 					</button>
 				</form>
+				<a href="/dashboard">Dashboard</a>
 			</nav>
 			<h1>All Songs</h1>
+			<div>
+				<h1>
+					<c:out value="${message}"></c:out>
+				</h1>
+			</div>
 			<table>
 			    <thead>
 			        <tr>

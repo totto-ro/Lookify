@@ -27,7 +27,7 @@ public class Song {
 	@Size(min=5,max=45)
 	private String title;
 	
-	@Size(min=5,max=45)
+	@Size(min=2,max=45)
 	private String artist;
 	
 	@Min(1)

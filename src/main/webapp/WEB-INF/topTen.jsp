@@ -5,24 +5,24 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Show</title>
+		<title>TopTen</title>
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
 	</head>
 	<body>
 		<main>
 		    <nav>
+		    	<h1>Top Ten Songs:</h1>
 			    <a href="/dashboard">Dashboard</a>
 			</nav>
-			<h1>Title: <c:out value="${song.title}"></c:out></h1>
-			<p>Artist: <c:out value="${song.artist}"></c:out></p>
-			<p>Rating: <c:out value="${song.rating}"></c:out></p>
 			<div class="div">
-				<form action="/delete/${song.id}" method="POST">
-				    <input type="hidden" name="_method" value="delete">
-				    <input type="submit" value="delete">
-				</form>
+				<c:forEach var="element" items="${songTop}">
+				<ul>
+					<li>
+					<h2 class="topten">${ element.rating } - <a href="/songs/${ element.id }">${ element.title }</a> - ${ element.artist}</h2>
+					</li>
+				</ul>
+				</c:forEach>
 			</div>
-			
 		</main>
 	</body>
 </html>
